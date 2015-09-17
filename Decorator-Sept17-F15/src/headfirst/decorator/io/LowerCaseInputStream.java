@@ -4,6 +4,7 @@ import java.io.*;
 
 public class LowerCaseInputStream extends FilterInputStream {
 
+  private byte[] bytes;
   public LowerCaseInputStream(InputStream in) {
     super(in);
   }
@@ -18,6 +19,13 @@ public class LowerCaseInputStream extends FilterInputStream {
     for (int i = offset; i < offset + result; i++) {
       b[i] = (byte) Character.toLowerCase((char) b[i]);
     }
+    bytes = b;
     return result;
   }
+  
+  
+  public byte[] getByteArray(){
+	  return bytes;
+  }
 }
+
